@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+/* NAVBAR LINK GLOBAL HOVER EFFECT */
+
+.nav-link {
+  position: relative;
+  color: #374151; /* gray-700 */
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #f97316; /* orange-500 */
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link:active {
+  color: #ea580c; /* orange-600 */
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after,
+.nav-link:active::after {
+  width: 100%;
+}
+/* ================= MENU CARD HOVER ================= */
+
+.menu-card {
+  transition: all 0.4s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* REMOVE THIS (problem yahan hai) */
+/*
+.menu-card:active {
+  transform: scale(0.98);
+}
+*/
+
+/* Image Zoom */
+.menu-card:hover .menu-image {
+  transform: scale(1.08);
+}
+
+.menu-image {
+  transition: transform 0.5s ease;
+}
+
+/* Title Color Change */
+.menu-card:hover h3 {
+  color: #f97316;
+}
+
+/* Button Hover */
+.menu-btn {
+  transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.menu-btn:active {
+  transform: scale(0.96);
+}
+
+/* SweetAlert responsive text */
+.swal-title-small {
+  font-size: 22px;
+}
+
+.swal-text-small {
+  font-size: 16px;
+}
+
+@media (min-width: 640px) {
+  .swal-title-small {
+    font-size: 30px;
+  }
+
+  .swal-text-small {
+    font-size: 18px;
+  }
+}
+
+
