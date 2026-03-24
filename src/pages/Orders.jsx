@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getUserOrders } from "../Services/OrderService";
+import { subscribeUserOrders } from "../Services/OrderService";
 import { useAuth } from "../hooks/useAuth";
 
 const Orders = () => {
@@ -10,24 +10,14 @@ const Orders = () => {
 
   useEffect(() => {
 
-    const fetchOrders = async () => {
+    if (!user?.uid) return;
 
-      try {
-
-        const data = await getUserOrders(user.uid);
-        setOrders(data);
-
-      } catch (error) {
-
-        console.log(error);
-
-      }
-
+    const unsubscribe = subscribeUserOrders(user.uid, (data) => {
+      setOrders(data);
       setLoading(false);
+    });
 
-    };
-
-    if (user?.uid) fetchOrders();
+    return () => unsubscribe();
 
   }, [user]);
 
@@ -67,7 +57,13 @@ const Orders = () => {
 
             <p className="text-gray-600">
               Status:
-              <span className="text-orange-500 ml-2 font-medium">
+              <span
+                className={`ml-2 font-medium px-2 py-1 rounded text-white
+                  ${order.status === "pending" && "bg-yellow-500"}
+                  ${order.status === "preparing" && "bg-blue-500"}
+                  ${order.status === "delivered" && "bg-green-500"}
+                `}
+              >
                 {order.status}
               </span>
             </p>
@@ -81,7 +77,6 @@ const Orders = () => {
             </p>
 
             {/* Items */}
-
             {order.items.map((item, index) => (
 
               <div
