@@ -86,11 +86,25 @@ const MenuItems = () => {
 
         <div className="flex justify-center mt-14">
           <button
-            onClick={() => navigate("/restaurant")}
-            className="px-8 py-3 rounded-xl border border-orange-500 text-orange-500 font-medium transform  transition-all cursor-pointer duration-300 hover:scale-110 active:scale-110 hover:bg-orange-500 active:bg-orange-500 hover:text-white active:text-white hover:shadow-lg active:shadow-lg "
-          >
-            View All Restaurants
-          </button>
+  onClick={() => {
+    navigate("/restaurant");
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+  }}
+  className="
+    px-8 py-3 rounded-xl border border-orange-500 text-orange-500 font-medium 
+    transform transition-all duration-300 cursor-pointer
+
+    hover:scale-110 hover:bg-orange-500 hover:text-white hover:shadow-lg
+    active:scale-95 active:bg-orange-500 active:text-white active:shadow-lg
+    focus:bg-orange-500 focus:text-white focus:shadow-lg
+
+    sm:hover:scale-110 sm:active:scale-95
+  "
+>
+  View All Restaurants
+</button>
         </div>
       </div>
     </section>
