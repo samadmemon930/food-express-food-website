@@ -66,6 +66,8 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
+                
+
                 className="nav-link text-gray-700 font-medium hover:text-orange-600 transition duration-200 cursor-pointer"
               >
                 {link.name}

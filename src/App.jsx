@@ -4,6 +4,7 @@ import React from "react";
 import AppRoutes from "./Routes/AppRoute";
 import Navbar from "./Components/common/Navbar";
 import Footer from "./Components/common/Footer";
+import ScrollToTop from "./Components/common//ScrollToTop"; // ✅ import
 import { useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -12,14 +13,14 @@ function App() {
 
   const location = useLocation();
 
-  // Pages jahan Navbar/Footer hide karna hai
   const noHeaderFooter = ["/login", "/register"];
-
   const hideHeaderFooter = noHeaderFooter.includes(location.pathname);
 
   return (
 
     <div className="flex flex-col min-h-screen">
+
+      <ScrollToTop /> {/* ✅ yahan lagao */}
 
       {!hideHeaderFooter && <Navbar />}
 
@@ -29,7 +30,6 @@ function App() {
 
       {!hideHeaderFooter && <Footer />}
 
-      {/* Toastify container */}
       <ToastContainer
         position="top-right"
         autoClose={2000}
