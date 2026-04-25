@@ -76,12 +76,12 @@ const Navbar = () => {
           </div>
 
           {/* RIGHT SIDE */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1 md:gap-2">
 
             {/* CART */}
             <Link
               to="/cart"
-              className="relative flex items-center justify-center h-10 w-10 rounded-md hover:bg-gray-100 transition cursor-pointer"
+              className="relative flex items-center justify-center h-10 w-10 rounded-md transition cursor-pointer"
             >
               <svg
                 className="w-7 h-7 text-gray-700 hover:text-orange-600 transition"
@@ -99,7 +99,7 @@ const Navbar = () => {
 
               {/* CART BADGE */}
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1.5 py-[2px] rounded-full font-semibold">
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full font-semibold">
                   {cartCount}
                 </span>
               )}

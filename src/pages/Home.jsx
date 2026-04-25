@@ -9,8 +9,8 @@ const Home = () => {
     <>
     <HomeSection/>
     <FeaturedRestaurant/>
-    <MenuItems/>
     <CtaSection/>
+    <MenuItems/>
     </>
   )
 }
