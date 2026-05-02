@@ -68,7 +68,7 @@ const Navbar = () => {
                 to={link.path}
                 
 
-                className="nav-link text-gray-700 font-medium hover:text-orange-600 transition duration-200 cursor-pointer"
+                className="nav-link font-medium cursor-pointer"
               >
                 {link.name}
               </Link>
@@ -164,7 +164,7 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 onClick={() => setMenuOpen(false)}
-                className="nav-link block text-gray-700 hover:text-orange-600 font-medium cursor-pointer"
+                className="nav-link block font-medium cursor-pointer"
               >
                 {link.name}
               </Link>
